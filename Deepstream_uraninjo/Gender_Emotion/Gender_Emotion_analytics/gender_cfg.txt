@@ -1,0 +1,42 @@
+[property]
+gpu-id=0
+net-scale-factor=1.0
+offsets=103.939;116.779;123.68
+model-color-format=1
+batch-size=2
+
+labelfile-path=/home/uraninjo/Masaüstü/OpenZeka/TAO/NVIDIA-TAO-Works/models/GenderDetector/labels.txt
+tlt-encoded-model=/home/uraninjo/Masaüstü/OpenZeka/TAO/NVIDIA-TAO-Works/models/GenderDetector/final_model.etlt
+tlt-model-key=nvidia_tao
+model-engine-file=/home/uraninjo/Masaüstü/OpenZeka/TAO/NVIDIA-TAO-Works/models/GenderDetector/final_model.etlt_b2_gpu0_fp32.engine
+infer-dims=3;100;100
+
+gie-unique-id=2
+operate-on-gie-id=1
+operate-on-class-ids=2
+num-detected-classes=2
+output-blob-names=predictions/Softmax
+
+
+## 0=FP32, 1=INT8, 2=FP16 mode
+network-mode=0
+# process-mode: 2 - inferences on crops from primary detector, 1 - inferences on whole frame
+process-mode=2
+interval=0
+network-type=1 # defines that the model is a classifier.
+classifier-threshold=0.4
+num-detected-classes=2
+cluster-mode=4
+
+[class-attrs-all]
+topk=20
+eps=0.2
+detected-min-h=40
+detected-min-w=40
+
+[class-attrs-0]
+threshold=0.8
+
+[class-attrs-1]
+threshold=0.2
+
